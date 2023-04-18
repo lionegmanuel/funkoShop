@@ -265,3 +265,44 @@ header {
 .collectionDescription h4 {
   font-size: 40px;
 }
+
+
+/*pie de pagina*/
+footer {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  padding: 20px;
+  height: fit-content;
+  background: #30343F;
+}
+
+#mainFooter {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  align-items: center;
+}
+
+#mainFooter ul {
+  margin: auto 20%;
+  color: #fff;
+  font-size: 25px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#mainFooter ul li p {
+  margin: 15px auto;
+}
+
+#mainFooter img {
+  margin: auto;
+}
+
+#rightReserved {
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+  font-style: oblique;
+  margin-top: 30px;
+}
