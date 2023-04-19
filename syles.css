@@ -155,7 +155,7 @@ header {
 .funkoTittle {
   margin: auto 20px;
   width: 100%;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bold;
   color: #FAFAFF;
 }
@@ -183,7 +183,7 @@ header {
 
 #banner img {
   width: 100%;
-  height: 700px;
+  height: 600px;
 }
 
 #banner .textZone {
@@ -195,18 +195,18 @@ header {
 }
 
 .textZone h2 {
-  font-size: 70px;
+  font-size: 50px;
   font-weight: bold;
 }
 
 .textZone h4 {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .bannerText {
   color: #FAFAFF;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 35px auto;
+  margin: 5px auto 35px auto;
 }
 
 
@@ -216,8 +216,8 @@ header {
   font-family: Arial, Helvetica, sans-serif;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   border-radius: 50px;
-  font-size: 40px;
-  padding: 15px;
+  font-size: 25px;
+  padding: 10px;
   margin-top: 30px;
 }
 
@@ -227,7 +227,7 @@ header {
 
 /*container y zona principal*/
 #centralContainer {
-  margin: 50px auto;
+  margin: 40px auto;
   display: grid;
   grid-template-rows: auto auto auto;
 }
@@ -235,23 +235,31 @@ header {
 .itemCollection {
   margin: 25px auto;
   display: flex;
-  flex-flow: row;
+  flex-wrap: wrap;
   width: 80%;
+  flex-direction: row;
+  text-align: start;
 
 }
 
-.itemCollection:nth-child(2) {
+#collection .itemCollection:nth-child(2) {
   flex-direction: row-reverse;
 }
 
 .itemCollection img {
-  height: 800px;
-  width: 800px;
-  margin: auto;
+  height: 420px;
+  width: 420px;
+  margin: auto 75px;
+}
+
+.itemCollection .shopAccesButton {
+  background: #000;
+  color: #fafafa;
 }
 
 .collectionDescription {
-  margin: auto;
+  margin: auto 10px;
+  width: 40%;
 }
 
 .collectionDescription .bannerText {
@@ -259,20 +267,64 @@ header {
 }
 
 .collectionDescription h2 {
-  font-size: 75px;
-}
-
-.collectionDescription h4 {
   font-size: 40px;
 }
 
+.collectionDescription h4 {
+  font-size: 20px;
+}
+
+/*lanzamientows*/
+#releases {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+  height: fit-content;
+  margin: 30px auto;
+  justify-content: space-around;
+  width: 80%;
+}
+
+#releases .itemCollection {
+  margin: auto;
+  text-align: left;
+}
+
+#releases .itemCollection ul li {
+  margin: 15px auto;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#releases .itemCollection ul li p {
+  font-size: 15px;
+  color: #333333;
+
+}
+
+#releases .itemCollection ul li .pay {
+  color: #1D84B5;
+}
+
+#releases .itemCollection ul li h4 {
+  font-weight: bold;
+}
+
+#releases .bannerText {
+  font-size: 40px;
+  color: #fff;
+}
+
+#releases .itemCollection img {
+  height: 250px;
+  width: 250px;
+}
 
 /*pie de pagina*/
 footer {
   display: flex;
   flex-flow: column;
   width: 100%;
-  padding: 20px;
+  padding: 20px 0 20px 0;
   height: fit-content;
   background: #30343F;
 }
@@ -282,12 +334,13 @@ footer {
   grid-template-columns: 50% 50%;
   grid-template-rows: auto;
   align-items: center;
+  margin: 2% 0 2% 0;
 }
 
 #mainFooter ul {
   margin: auto 20%;
   color: #fff;
-  font-size: 25px;
+  font-size: 20px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -301,7 +354,7 @@ footer {
 
 #rightReserved {
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   color: #fff;
   font-style: oblique;
   margin-top: 30px;
