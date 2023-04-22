@@ -157,7 +157,17 @@ header {
   width: 100%;
   font-size: 25px;
   font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #FAFAFF;
+}
+
+.funkoTittle a {
+  text-decoration: none;
+  color: #fafafa;
+}
+
+.funkoTittle a:hover {
+  color: #ffbf00;
 }
 
 #navegation {
@@ -263,7 +273,7 @@ header {
   flex-direction: row-reverse;
 }
 
-.itemCollection img {
+#collection .itemCollection img {
   height: 420px;
   width: 420px;
   margin: auto 75px;
@@ -302,27 +312,27 @@ header {
   width: 80%;
 }
 
-#releases .itemCollection {
+.itemCollection {
   margin: auto;
   text-align: left;
 }
 
-#releases .itemCollection ul li {
+.itemCollection ul li {
   margin: 15px auto;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-#releases .itemCollection ul li p {
+.itemCollection ul li p {
   font-size: 15px;
   color: #333333;
 
 }
 
-#releases .itemCollection ul li .pay {
+.itemCollection ul li .pay {
   color: #1D84B5;
 }
 
-#releases .itemCollection ul li h4 {
+.itemCollection ul li h4 {
   font-weight: bold;
 }
 
@@ -331,9 +341,9 @@ header {
   color: #fff;
 }
 
-#releases .itemCollection img {
-  height: 250px;
-  width: 250px;
+.itemCollection img {
+  height: 300px;
+  width: 300px;
 }
 
 
@@ -341,6 +351,7 @@ header {
 #catalog {
   width: 90%;
   margin: 30px auto;
+  overflow: hidden;
 }
 
 aside {
@@ -349,21 +360,25 @@ aside {
   text-align: start;
   padding: 10px;
   width: 20%;
-  margin-left: 10px;
+  float: left;
+  margin-right: 10px;
 }
 
 aside input {
   border-radius: 10px;
+  padding: 8px;
+  font-size: 14px;
 }
 
 .inputProduct {
   margin: 10px 0;
   font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #minAndMaxPrice {
   display: grid;
-  grid-template-columns: 40px 40px 40px 40px;
+  grid-template-columns: 40px 90px 40px 90px;
   grid-template-rows: auto;
   grid-gap: 6px;
   align-items: center;
@@ -374,9 +389,8 @@ aside input {
 }
 
 #minAndMaxPrice input {
-  width: 30px;
+  text-align: center;
 }
-
 
 #filterProduct form select {
   border-radius: 10px;
@@ -401,6 +415,122 @@ aside input {
   margin: 10px auto;
 }
 
+/*seccion de catalogo de productos*/
+#productCatalog {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto auto;
+  width: auto;
+}
+
+.catalogItem {
+  margin: 20px auto;
+  width: 350px;
+  justify-content: center;
+  align-items: center;
+}
+
+.catalogItem .itemCollection img {
+  height: 300px;
+  margin: 0 auto;
+}
+
+/*selector de paginas*/
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  grid-column: 2 / span 1;
+}
+
+.page,
+.prev,
+.next {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 15px;
+  border: 2px solid #ccc;
+  margin: 0 5px;
+  border-radius: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f6f6f6;
+}
+
+.page:hover,
+.prev:hover,
+.next:hover {
+  color: #ff6600;
+}
+
+.active {
+  border-color: #9b3e00;
+  scale: 1.1;
+  background: #ffc2c291;
+}
+
+.active:hover {
+  color: #9b3e00;
+}
+
+
+/*formulario de contacto*/
+#contactForm {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 20px auto 100px 10%;
+}
+
+#contactForm label {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 25px 0;
+}
+
+#contactForm input {
+  padding: 10px;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  margin-bottom: -5px;
+}
+
+#contactForm input:hover {
+  background: #ece5d9a4;
+}
+
+textarea {
+  padding: 15px;
+  font-size: 22px;
+  border: none;
+  outline: none;
+  margin: 5px 0;
+}
+
+textarea:hover {
+  background: #ece5d9a4;
+}
+
+#submitForm {
+  font-size: 27px;
+  font-weight: bold;
+  font-style: italic;
+  background: #a44400;
+  padding: 8px;
+  margin-top: 40px;
+  margin-left: 0;
+  width: min-content;
+}
+
+#submitForm:hover {
+  transform: scale(1.2);
+  transition: 0.5s ease-in-out;
+  background: #3e0000;
+  color: #ff6600;
+}
+
+/*---------------------+/
 /*pie de pagina*/
 footer {
   display: flex;
@@ -441,3 +571,50 @@ footer {
   font-style: oblique;
   margin-top: 30px;
 }
+
+/*media queries*/
+@media (max-width: 1440px) {
+  #productCatalog {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(auto-fit, minmax(100px, auto));
+    grid-auto-flow: dense;
+
+  }
+
+  .pagination {
+    grid-column: 1 / span 2;
+  }
+}
+
+@media (max-width: 1280px) {
+  .catalogItem .itemCollection img {
+    height: 250px;
+    width: 250px;
+  }
+
+  .itemCollection ul li p {
+    font-size: 12px;
+  }
+
+  .itemCollection ul li h4 {
+    font-size: 15px;
+  }
+
+  #minAndMaxPrice {
+    grid-template-columns: none;
+    grid-template-rows: none;
+
+  }
+
+  #minAndMaxPrice input {
+    width: 100px;
+  }
+}
+
+@media (max-width: 970px) {}
+
+@media (max-width: 800px) {}
+
+@media (max-width: 600px) {}
+
+@media (max-width: 400px) {}
