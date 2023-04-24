@@ -312,6 +312,14 @@ header {
   width: 80%;
 }
 
+.releaseTittle {
+  color: #000;
+  font-weight: bold;
+  font-size: 60px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-left: 12%;
+}
+
 .itemCollection {
   margin: auto;
   text-align: left;
@@ -592,6 +600,12 @@ footer {
     width: 250px;
   }
 
+  #collection .itemCollection img {
+    height: 380px;
+    width: 370px;
+    margin-left: 0;
+  }
+
   .itemCollection ul li p {
     font-size: 12px;
   }
@@ -611,7 +625,83 @@ footer {
   }
 }
 
-@media (max-width: 970px) {}
+@media (max-width: 970px) {
+  #collection .itemCollection {
+    flex-direction: column;
+    justify-content: center;
+    margin: 60px auto;
+  }
+
+  #collection .collectionDescription {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+  }
+
+  #collection .itemCollection img {
+    margin: auto;
+  }
+
+  #releases .itemCollection img {
+    height: 240px;
+    width: 240px;
+  }
+
+  #releases {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(auto-fit, minmax(80px, auto));
+  }
+
+  .releaseTittle {
+    font-size: 45px;
+    margin-left: 7%;
+  }
+
+  header {
+    flex-direction: column;
+    height: auto;
+  }
+
+  #brand {
+    width: 100%;
+    margin: 20px auto;
+    flex-direction: column;
+  }
+
+  #brand img {
+    margin: 25px auto;
+  }
+
+  .funkoTittle {
+    text-align: center;
+    margin-left: 0;
+  }
+
+
+  #navegation {
+    justify-content: center;
+    width: 100%;
+    margin: 10px auto;
+    flex-wrap: wrap;
+  }
+
+  aside {
+    float: none;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(auto-fit, minmax(80px, auto));
+  }
+
+  #filterProduct {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  #filterProduct #search {
+    margin: auto 10px;
+    height: min-content;
+  }
+}
 
 @media (max-width: 800px) {}
 
