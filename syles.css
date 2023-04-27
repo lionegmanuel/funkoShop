@@ -185,7 +185,7 @@ header {
 }
 
 .itemNav a {
-  margin: auto 25px;
+  margin: auto 17px;
   color: #FAFAFF;
   text-decoration: none;
 
@@ -232,7 +232,7 @@ header {
 .bannerText {
   color: #FAFAFF;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 5px auto 35px auto;
+  margin: 5px auto 27px auto;
 }
 
 
@@ -244,7 +244,7 @@ header {
   border-radius: 50px;
   font-size: 25px;
   padding: 10px;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 #banner .textZone .shopAccesButton h4 {
@@ -268,6 +268,11 @@ header {
 
 }
 
+#collection .itemCollection img:hover {
+  transform: scale(1.2);
+  transition: 0.3s;
+}
+
 #collection .itemCollection:nth-child(2) {
   flex-direction: row-reverse;
 }
@@ -281,6 +286,13 @@ header {
 .itemCollection .shopAccesButton {
   background: #000;
   color: #fafafa;
+}
+
+.itemCollection .shopAccesButton:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+  background: #ece5d9;
+  color: #0e0e0e;
 }
 
 .collectionDescription {
@@ -348,9 +360,135 @@ header {
   color: #fff;
 }
 
+#releases .itemCollection:hover {
+  transform: scale(1.2);
+  transition: 0.5s;
+}
+
 .itemCollection img {
   height: 300px;
   width: 300px;
+}
+
+/*login*/
+#login {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.accountSestionTittle {
+  font-size: 35px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin: 60px auto;
+}
+
+
+#login form {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  margin: 0 auto 120px auto;
+  padding: 15px;
+}
+
+#login form label {
+  margin: 20px 15px 10px 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+}
+
+#login form hr {
+  margin: 5px 0;
+}
+
+#login form input {
+  outline: none;
+  border: none;
+  background: #fefbf5b5;
+  color: #000;
+  border-radius: 20px;
+  padding: 15px;
+  font-size: 20px;
+}
+
+#login form input::placeholder {
+  color: #b57800b5;
+  font-style: italic;
+  font-size: 15px;
+
+}
+
+.accountSessionButton {
+  padding: 10px;
+  font-size: 18px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #fff;
+  background: #7c4600;
+  width: 40%;
+  margin: 50px auto 0 auto;
+}
+
+.accountSessionButton:hover {
+  background: #d87b00;
+}
+
+#login form p {
+  margin: 35px auto;
+  font-size: 16px;
+  color: #0e0e0e;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#login form p span a {
+  font-size: 18px;
+  color: #7c4600;
+  font-style: italic;
+  text-decoration: none;
+}
+
+
+/*register*/
+#login form h4 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #0e0e0e;
+  margin-bottom: 30px;
+}
+
+#login form .rrss {
+
+  margin-bottom: 36px;
+}
+
+#login form .rrss a {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+}
+
+#login form .rrss a:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+#login form .rrss img {
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+}
+
+#login form .rrss p {
+  font-size: 16px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin: auto 0;
+}
+
+#login form .rrss p #facebook {
+  color: #00108c;
+}
+
+#login form .rrss p #google {
+  color: #00a71f;
 }
 
 
@@ -442,6 +580,11 @@ aside input {
   margin: 0 auto;
 }
 
+.catalogItem .itemCollection:hover {
+  transform: scale(1.2);
+  transition: 0.5s;
+}
+
 /*selector de paginas*/
 .pagination {
   display: flex;
@@ -497,7 +640,7 @@ aside input {
 
 #contactForm input {
   padding: 10px;
-  font-size: 20px;
+  font-size: 19px;
   border: none;
   outline: none;
   margin-bottom: -5px;
@@ -624,6 +767,7 @@ footer {
   #minAndMaxPrice input {
     width: 100px;
   }
+
 }
 
 @media (max-width: 970px) {
@@ -723,6 +867,10 @@ footer {
   #productCatalog .catalogItem {
     width: min-content;
   }
+
+  .accountSessionButton {
+    width: 60%;
+  }
 }
 
 @media (max-width: 800px) {
@@ -732,6 +880,10 @@ footer {
 
   #contactForm label {
     font-size: 19px;
+  }
+
+  #submitForm {
+    font-size: 20px;
   }
 
   aside {
@@ -769,6 +921,22 @@ footer {
     width: 150px;
     height: 150px;
   }
+
+  #banner .textZone {
+    margin: auto 60px;
+  }
+
+  #login h2 {
+    font-size: 27px;
+  }
+
+  #login form label {
+    font-size: 17px;
+  }
+
+  #login form input {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -780,9 +948,19 @@ footer {
     align-items: center;
   }
 
+  .funkoTittle {
+    font-size: 22px;
+  }
+
   #navegation .itemNav {
     margin: 10px auto;
+    font-size: 17px;
   }
+
+  .itemNav a {
+    margin: 10px 30px;
+  }
+
 
   .collectionDescription h2 {
     font-size: 34px;
@@ -808,6 +986,43 @@ footer {
   #releases .itemCollection img {
     width: 200px;
     height: 200px;
+  }
+
+  #banner .textZone {
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+
+  #banner .textZone h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+
+  #banner .textZone h4 {
+    margin-bottom: 9px;
+  }
+
+  .shopAccesButton {
+    font-size: 20px;
+    padding: 5px;
+    margin-top: 8px;
+  }
+
+  #contactForm label {
+    font-size: 15px;
+  }
+
+  #contactForm input {
+    font-size: 14px;
+  }
+
+  #login form {
+    width: 80%;
+  }
+
+  .accountSessionButton {
+    width: 80%;
   }
 }
 

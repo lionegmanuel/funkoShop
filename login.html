@@ -23,30 +23,22 @@
     </nav>
   </header>
 
-
   <main>
-    <form id="contactForm">
-      <label for="name" class="inputProduct">NOMBRE:</label>
-      <input type="text" name="name" id="name">
-      <hr width="100%" color="#ffd8b4" size="5">
-      <label for="lastName" class="inputProduct">APELLIDO:</label>
-      <input type="text" name="lastName" id="lastName">
-      <hr width="100%" color="#ffd8b4" size="5">
-      <label for="email" class="inputProduct">EMAIL:</label>
-      <input type="email" name="email" id="email">
-      <hr width="100%" color="#ffd8b4" size="5">
-      <label for="message">MENSAJE / CONSULTA:</label>
-      <hr width="100%" color="#ffd8b4" size="5">
-      <textarea name="message" id="message" cols="44" rows="20"></textarea>
-      <hr width="100%" color="#ffd8b4" size="5">
-      <button type="button" id="submitForm">ENVIAR</button>
-    </form>
+    <section id="login">
+      <h2 class="accountSestionTittle">INICIAR SESION</h2>
+      <form>
+        <label for="username">CORREO ELECTRONICO</label>
+        <input type="email" name="username" id="username" placeholder="Correo electronico">
+        <hr width="100%" color="#000" size="5">
+        <label for="password">CONTRASEÑA</label>
+        <input type="password" name="password" id="password" placeholder="Contraseña">
+        <hr width="100%" color="#000" size="5">
+        <button type="button" class="accountSessionButton">INICIAR SESION</button>
 
+        <p>¿No estas registrado aun? <span> <a href="register.html">CREAR UNA CUENTA</a></span></p>
+      </form>
+    </section>
   </main>
-
-
-
-
 
   <footer>
     <div id="mainFooter">
