@@ -129,11 +129,18 @@ table {
 }
 
 /*web*/
+html {
+  overflow-x: hidden;
+}
+
 body {
   max-width: auto;
   background-color: #fff;
   line-height: 1;
   min-width: 400px;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: #30343F;
 }
 
 header {
@@ -185,6 +192,7 @@ header {
 }
 
 .itemNav a {
+  font-size: 20px;
   margin: auto 17px;
   color: #FAFAFF;
   text-decoration: none;
@@ -229,6 +237,18 @@ header {
   font-size: 20px;
 }
 
+.textZone a {
+  text-decoration: none;
+
+  margin: 15px;
+}
+
+.textZone .shopAccesButton {
+  padding: 12px 40px;
+  margin-left: 0;
+}
+
+
 .bannerText {
   color: #FAFAFF;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -252,10 +272,15 @@ header {
 }
 
 /*container y zona principal*/
+main {
+  background-color: #fff;
+}
+
 #home {
-  margin: 40px auto;
+  margin-bottom: 40px;
   display: grid;
   grid-template-rows: auto auto auto;
+
 }
 
 .itemCollection {
@@ -494,7 +519,6 @@ header {
 
 /*shop*/
 #catalog {
-  width: 90%;
   margin: 30px auto;
   overflow: hidden;
 }
@@ -506,7 +530,7 @@ aside {
   padding: 10px;
   width: 20%;
   float: left;
-  margin-right: 10px;
+  margin: 30px 20px 0 40px;
 }
 
 aside input {
@@ -569,14 +593,14 @@ aside input {
 }
 
 .catalogItem {
-  margin: 20px auto;
-  width: 350px;
+  margin: 20px 0;
+  width: min-content;
   justify-content: center;
   align-items: center;
 }
 
 .catalogItem .itemCollection img {
-  height: 300px;
+  height: 250px;
   margin: 0 auto;
 }
 
@@ -668,7 +692,8 @@ textarea:hover {
   font-size: 27px;
   font-weight: bold;
   font-style: italic;
-  background: #a44400;
+  background: #8f5100;
+  color: #ffbf00;
   padding: 8px;
   margin-top: 40px;
   margin-left: 0;
@@ -676,10 +701,7 @@ textarea:hover {
 }
 
 #submitForm:hover {
-  transform: scale(1.2);
-  transition: 0.5s ease-in-out;
-  background: #3e0000;
-  color: #ff6600;
+  background: #b86800c2;
 }
 
 /*---------------------+/
@@ -703,13 +725,22 @@ footer {
 
 #mainFooter ul {
   margin: auto 20%;
+}
+
+#mainFooter ul li p {
+  margin: 15px auto;
+}
+
+#mainFooter ul li a {
+  text-decoration: none;
   color: #fff;
   font-size: 20px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#mainFooter ul li p {
-  margin: 15px auto;
+#mainFooter ul li a:hover {
+  color: #ffbf00;
+  transition: color 0.3s;
 }
 
 #mainFooter img {
@@ -768,6 +799,10 @@ footer {
     width: 100px;
   }
 
+  .releaseTittle {
+    font-size: 50px;
+  }
+
 }
 
 @media (max-width: 970px) {
@@ -798,8 +833,9 @@ footer {
   }
 
   .releaseTittle {
-    font-size: 45px;
-    margin-left: 7%;
+    font-size: 37px;
+    margin: auto;
+    text-align: center;
   }
 
   header {
@@ -918,8 +954,8 @@ footer {
   }
 
   #mainFooter img {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
   }
 
   #banner .textZone {
@@ -980,7 +1016,7 @@ footer {
   }
 
   .releaseTittle {
-    font-size: 35px;
+    font-size: 27px;
   }
 
   #releases .itemCollection img {
@@ -1023,6 +1059,15 @@ footer {
 
   .accountSessionButton {
     width: 80%;
+  }
+
+  #mainFooter img {
+    width: 80px;
+    height: 80px;
+  }
+
+  #mainFooter ul {
+    font-size: 12px;
   }
 }
 
