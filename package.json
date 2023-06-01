@@ -1,0 +1,17 @@
+{
+  "name": "funkoshop",
+  "version": "1.0.0",
+  "description": "Proyecto codo a codo 4.0",
+  "main": "index.js",
+  "author": "Manuel Lione",
+  "keywords": [],
+  "license": "ISC",
+  "scripts": {
+    "show": "node --watch server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongo": ""
+  }
+}
