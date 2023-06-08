@@ -1,35 +1,15 @@
+//creacion de servidor
+const http = require('http');
 
-function buyProduct(name) {
-  return new Promise((resolve, reject) => {
-    console.log(`Consultando por disponibilidad de: ${name}...`)
-    setTimeout(() => {
-      if (name === 'Computadora' || name === 'Tablet' || name === 'Celular') {
-        resolve(`Producto adquirido con éxito`);
+const server = http.createServer((req, res) => {
+  console.log('===> Inicializando "REQUEST"....\nDominio solicitado: ' + req.url);
+  console.log("El resultado de la respuesta es... " + res.statusCode)
+  res.end('Respuesta');
 
-      } else reject('Producto NO disponible');
-    }, 3000);
-  });
-}
+});
 
-function productProcess(result) {
-  return new Promise((resolve) => {
-    console.log('Procesando pedido...')
-    setTimeout(() => {
-      console.log(result);
-      resolve('Muchas gracias por tu compra! Te esperamos proximamente...');
-    }, 2000)
-  });
-}
+const port = 3000;
 
-async function pedido(productName) {
-  try {
-    const buy = await buyProduct(productName);
-    console.log(buy);
-    const process = await productProcess(buyProduct);
-    console.log(process);
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-pedido('Celular');
+server.listen(port, () => {
+  console.log(`Servidor ejecutado con éxito en http://localhost:${port}...`);
+})
