@@ -1,6 +1,6 @@
 const http = require("http");
 
-const alumnos = require("./alumnos.js");
+const { listadoAlumnos } = require("./alumnos.js");
 
 const server = http.createServer((req, res) => {
   //extraccion del metodo de la solicitud mediante desestructuracion de javascript
@@ -22,27 +22,51 @@ server.listen(port, () => {
 
 function getControl(req, res) {
   const path = req.url;
-  //if (path === '/') { req.statusCode = 200; res.end('Ejecución del homepage exitosa') } //cuando se este en la pagina principal
+
   switch (path) {
     case '/':
-      req.statusCode = 200;
       res.end('Ejecución del homepage exitosa');
       break;
     case '/alumnos':
-      req.statusCode = 200;
-      res.end('Listado de alumnos:\n' + JSON.stringify(alumnos.listadoAlumnos));
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end('Listado de alumnos:\n' + JSON.stringify(listadoAlumnos));
       break;
-    case '/alumnos/primer-año':
-      req.statusCode = 200;
-      res.end('Listado de alumnos de 1er año: \n' + JSON.stringify(alumnos.listadoAlumnos["primer año"]));
+    case '/alumnos/primer-ano':
+      res.end("Alumnos de primer año:\n" + JSON.stringify(listadoAlumnos["primer año"]));
       break;
-    case '/alumnos/segundo-año':
-      req.statusCode = 200;
-      res.end('Listado de alumnos de 1er año: \n' + JSON.stringify(alumnos.listadoAlumnos["segundo año"]));
+    case '/alumnos/segundo-ano':
+      res.end('Listado de alumnos de 1er año: \n' + JSON.stringify(listadoAlumnos["segundo año"]));
       break;
-    case '/alumnos/tercer-año':
-      req.statusCode = 200;
-      res.end('Listado de alumnos de 1er año: \n' + JSON.stringify(alumnos.listadoAlumnos["tercer año"]));
+
+    default:
+      req.statusCode = 400;
+      res.end('¡ERROR!\nParece que la pagina a la que desea ingresar NO existe o está rota.');
       break;
   }
+}
+function postControl(req, res) {
+  const path = req.url;
+
+  if (path === '/alumnos') {
+    let body = 'DATOS DEL CUERPO';
+
+    req.on('data', content => {
+      body += content.toString();
+    });
+    req.on('end', () => {
+      console.log(body);
+      console.log(typeof body);
+      //conversion a un objeto javascript para poder manipularlo y acceder a cada una de sus propiedades
+      body = JSON.parse(body);
+      console.log('Despues de convertir a JSON:\n' + body.titulo);
+      res.end('Metodo POST en homepage');
+
+    })
+
+
+
+
+  }
+  if (path === '/alumnos/tercer-ano') res.end('METODO POST aplicado en el listado de alumnos de 1er año: \n' + JSON.stringify(listadoAlumnos["tercer año"]));
+
 }
