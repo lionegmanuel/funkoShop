@@ -12,12 +12,43 @@ app.get('/alumnos', (req, res) => {
 app.get('/alumnos/primer-ano/', (req, res) => {
   res.send('Alumnos de primer año:\n' + JSON.stringify(listadoAlumnos.primer_ano));
 });
-app.get('/alumnos/primer-ano/:id', (req, res) => {
-  const id = req.params.id;
-  const alumno = listadoAlumnos.primer_ano.filter(alumnoActual => alumnoActual.id === id);
-  if (alumno.length === 0 || alumno == "") res.send('Alumno no encontrado');
-  else res.send('El alumno buscado es: ' + JSON.stringify(alumnoActual));
+app.get('/alumnos/segundo-ano/', (req, res) => {
+  res.send('Alumnos de segundo año:\n' + JSON.stringify(listadoAlumnos.segundo_ano));
 });
+app.get('/alumnos/primer-ano/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  let alumnoActual = "";
+  const resultadoAlumno = listadoAlumnos.primer_ano.filter(alumno => alumno.id === id);
+  //registro del alumno
+  resultadoAlumno.forEach(alumno => {
+    alumnoActual = alumno.nombre;
+  });
+  if (resultadoAlumno.length === 0 || alumnoActual == "") res.status(404).send('Alumno no encontrado');
+  else res.send(`El alumno encontrado es ${alumnoActual}`);
+});
+app.get('/alumnos/segundo-ano/:materiaFavorita', (req, res) => {
+  const nombreMateria = req.params.materiaFavorita;
+  const resultadoAlumno = listadoAlumnos.segundo_ano.filter(alumnoMateria => alumnoMateria.Materia_Favorita === nombreMateria);
+  if (resultadoAlumno.length === 0) res.status(404).send('Ningun alumno tiene la materia ' + nombreMateria + ' asignada como favorita');
+  else {
+    let alumnoActual = "";
+    if (resultadoAlumno.length == 1) {
+      resultadoAlumno.forEach(alumno => {
+        alumnoActual = alumno.nombre;
+      })
+      res.send(`El alumno que tiene la materia ${nombreMateria} como favorita es: ${alumnoActual}`);
+    }
+    else {
+
+      resultadoAlumno.forEach(alumno => {
+        alumnoActual += "\n-" + alumno.nombre;
+      })
+      res.send('Los alumnos que tienen a la materia ' + nombreMateria + ' como favorita son:\n' + alumnoActual);
+
+    }
+  }
+
+})
 
 
 
