@@ -15,7 +15,10 @@ app.get('/alumnos/primer-ano/', (req, res) => {
 app.get('/alumnos/segundo-ano/', (req, res) => {
   res.send('Alumnos de segundo año:\n' + JSON.stringify(listadoAlumnos.segundo_ano));
 });
-app.get('/alumnos/primer-ano/:id', (req, res) => {
+//trabajo con routers
+const routerAlumnos = app._router;
+app.use('/alumnos', routerAlumnos);
+routerAlumnos.get('/primer-ano/:id', (req, res) => {
   const id = parseInt(req.params.id);
   let alumnoActual = "";
   const resultadoAlumno = listadoAlumnos.primer_ano.filter(alumno => alumno.id === id);
@@ -26,24 +29,24 @@ app.get('/alumnos/primer-ano/:id', (req, res) => {
   if (resultadoAlumno.length === 0 || alumnoActual == "") res.status(404).send('Alumno no encontrado');
   else res.send(`El alumno encontrado es ${alumnoActual}`);
 });
-app.get('/alumnos/segundo-ano/:materiaFavorita', (req, res) => {
-  const nombreMateria = req.params.materiaFavorita;
-  const resultadoAlumno = listadoAlumnos.segundo_ano.filter(alumnoMateria => alumnoMateria.Materia_Favorita === nombreMateria);
-  if (resultadoAlumno.length === 0) res.status(404).send('Ningun alumno tiene la materia ' + nombreMateria + ' asignada como favorita');
+routerAlumnos.get('/alumnos/segundo-ano/:materiaFavorita', (req, res) => {
+  const nombreMateria = req.params.materiaFavorita.toUpperCase();
+  const resultadoAlumno = listadoAlumnos.segundo_ano.filter(alumnoMateria => alumnoMateria.Materia_Favorita.toUpperCase() === nombreMateria);
+  if (resultadoAlumno.length === 0) res.status(404).send('Ningun alumno tiene la materia ' + nombreMateria.toLocaleLowerCase() + ' asignada como favorita');
   else {
     let alumnoActual = "";
     if (resultadoAlumno.length == 1) {
       resultadoAlumno.forEach(alumno => {
         alumnoActual = alumno.nombre;
       })
-      res.send(`El alumno que tiene la materia ${nombreMateria} como favorita es: ${alumnoActual}`);
+      res.send(`El alumno que tiene la materia ${nombreMateria.toLocaleLowerCase()} como favorita es: ${alumnoActual}`);
     }
     else {
 
       resultadoAlumno.forEach(alumno => {
         alumnoActual += "\n-" + alumno.nombre;
       })
-      res.send('Los alumnos que tienen a la materia ' + nombreMateria + ' como favorita son:\n' + alumnoActual);
+      res.send('Los alumnos que tienen a la materia ' + nombreMateria.toLocaleLowerCase() + ' como favorita son:\n' + alumnoActual);
 
     }
   }
