@@ -1,23 +1,25 @@
 const express = require('express'); //importacion de express
 const app = express();
 
-const { listadoAlumnos } = require('./alumnos');
+const { listadoAlumnos } = require('./data/alumnos');
+
 app.get('/', (req, res) => {
   res.send('Primer servidor creado con express:\n');
 });
+const routerAlumnos = require('./routers/alumnos');
+app.use('/alumnos', routerAlumnos);
+const routerPrimerAño = require('./routers/primeraño');
+app.use('/')
+const routrSegundoAño = require('./routers/segundaoaño');
 
-app.get('/alumnos', (req, res) => {
-  res.send('Primer servidor creado con express:\nListado de alumnos:\n' + JSON.stringify(listadoAlumnos));
-});
-app.get('/alumnos/primer-ano/', (req, res) => {
+routerAlumnos.get('/primer-ano/', (req, res) => {
   res.send('Alumnos de primer año:\n' + JSON.stringify(listadoAlumnos.primer_ano));
 });
-app.get('/alumnos/segundo-ano/', (req, res) => {
+routerAlumnos.get('/segundo-ano/', (req, res) => {
   res.send('Alumnos de segundo año:\n' + JSON.stringify(listadoAlumnos.segundo_ano));
 });
-//trabajo con routers
-const routerAlumnos = app._router;
-app.use('/alumnos', routerAlumnos);
+
+
 routerAlumnos.get('/primer-ano/:id', (req, res) => {
   const id = parseInt(req.params.id);
   let alumnoActual = "";
