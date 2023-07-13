@@ -8,10 +8,16 @@
   "license": "ISC",
   "scripts": {
     "show": "node --watch server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "up": "nodemon --exec node src/server/server.js"
   },
   "dependencies": {
+    "css-loader": "^6.8.1",
     "express": "^4.18.2",
-    "mongo": ""
+    "html-webpack-plugin": "^5.5.3",
+    "mongo": "",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.1",
+    "webpack-dev-middleware": "^6.1.1"
   }
 }
